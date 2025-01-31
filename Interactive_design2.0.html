@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Interactive UI</title>
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            transition: background 0.3s ease-in-out;
+        }
+        .container {
+            padding: 30px;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #1e1e1e;
+            color: white;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background: #007bff;
+            padding: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Toggle Button */
+        .toggle-btn {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .toggle-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Interactive Cards */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease-in-out;
+            width: 250px;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode .card {
+            background: #333;
+            color: white;
+        }
+
+        /* Details (Expandable Text) */
+        details {
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        summary {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* Progress Bar */
+        progress {
+            width: 80%;
+            height: 20px;
+        }
+
+        /* Form Styling */
+        form {
+            margin-top: 20px;
+        }
+        input, textarea {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #218838;
+        }
+
+        /* Character Counter */
+        #char-count {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#cards">Cards</a>
+        <a href="#form">Contact</a>
+        <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </nav>
+
+    <div class="container">
+
+        <h1>Enhanced Interactive UI</h1>
+
+        <section id="about">
+            <h2>About This Page</h2>
+            <details>
+                <summary>Click to Reveal More Info</summary>
+                <p>This is an interactive UI example with dark mode, animated cards, and real-time form validation.</p>
+            </details>
+        </section>
+
+        <section id="cards">
+            <h2>Interactive Cards</h2>
+            <div class="card-container">
+                <div class="card" onclick="alert('You clicked Card 1!')">
+                    <h3>Card 1</h3>
+                    <p>Click me for an alert!</p>
+                </div>
+                <div class="card">
+                    <h3>Card 2</h3>
+                    <p>Hover for an animation effect.</p>
+                </div>
+                <div class="card">
+                    <h3>Card 3</h3>
+                    <p>Interactive UI features.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="progress">
+            <h2>Progress Tracker</h2>
+            <label>Loading Progress:</label>
+            <progress id="progress-bar" value="50" max="100"></progress>
+            <button onclick="increaseProgress()">Increase Progress</button>
+        </section>
+
+        <section id="form">
+            <h2>Contact Form</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label>Message:</label>
+                <textarea id="message" rows="4" oninput="updateCharCount()"></textarea>
+                <p id="char-count">Characters: 0</p>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Made with HTML, CSS, and JavaScript</p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function increaseProgress() {
+            let progressBar = document.getElementById("progress-bar");
+            if (progressBar.value < 100) {
+                progressBar.value += 10;
+            } else {
+                alert("Progress completed!");
+            }
+        }
+
+        function updateCharCount() {
+            let message = document.getElementById("message");
+            let charCount = document.getElementById("char-count");
+            charCount.textContent = "Characters: " + message.value.length;
+        }
+    </script>
+
+</body>
+</html>
