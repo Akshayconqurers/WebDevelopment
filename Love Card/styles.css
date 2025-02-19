@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffebf3;
+    font-family: Arial, sans-serif;
+}
+.card {
+    background: #ff4d6d;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.hidden-message {
+    display: none;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.heart {
+    font-size: 50px;
+    animation: heartbeat 1s infinite;
+}
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+input, button {
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+button {
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+}
