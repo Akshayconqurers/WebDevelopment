@@ -5,92 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Streamio - Streaming Website</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
     <header>
-        <div class="logo">Streamio</div>
-        <nav>
-            <ul>
+        <nav class="navbar">
+            <div class="logo">Streamio</div>
+            <button class="menu-button" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Webseries</a></li>
                 <li><a href="#">Watchlist</a></li>
-                <li>
-                    <!-- Dark Mode Toggle Button -->
-                    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
-                        <img id="dark-mode-icon" src="dark-mode.png" alt="Dark Mode">
-                    </button>
-                </li>
-
-
-                <li>
-                    <input type="text" placeholder="Search..." class="search-bar">
-                </li>
             </ul>
+            <div class="nav-right">
+                
+                <form action="#" method="GET">
+                    <input type="text" placeholder="Search..." class="search-bar">
+                </form>
+            </div>
         </nav>
     </header>
-
-    <!-- Hero Section -->
-<section class="hero-section">
-    <div class="hero-content">
-        <h1>Welcome to <span class="highlight">Streamio</span></h1>
-        <p>Your favorite streaming platform</p>
-    </div>
-</section>
-
-
-    <!-- Web Series Slider -->
-    <section class="slider-container">
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-        <div class="slider">
-            <div class="slide"><img src="babydriver.png"Series 1"></div>
-            <div class="slide"><img src="captainamerica.png" alt="Series 2"></div>
-            <div class="slide"><img src="mickey.png" alt="Series 3"></div>
-            <div class="slide"><img src="bradpit.png" alt="Series 4"></div>
-            <div class="slide"><img src="babydriver.png" alt="Series 5"></div>
-        </div>
-        <button class="next" onclick="nextSlide()">&#10095;</button>
-    </section>
-
+    
+    <main>
+        <div class="streaming-bg"></div>
+        <section class="hero-section">
+            <h1>Welcome to <span class="highlight">Streamio</span></h1>
+            <p>Your favorite streaming platform</p>
+        </section>
+    
+        <!-- Web Series Slider -->
+        <section class="slider-container">
+            <div class="slider-wrapper">
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <div class="slider">
+                    <div class="slide"><img src="Slider.jpg" alt="Series 1"></div>
+                    <div>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </section>
+    
         <!-- Brand Section -->
         <section class="brand-section">
             <h2>Featured</h2>
             <div class="brand-grid">
-                <div class="brand-item">
-                    <img src="Marvel.png" alt="Marvel">
-                    <p>Marvel</p>
-                </div>
-                <div class="brand-item">
-                    <img src="sony.png" alt="Sony Television">
-                    <p>Sony Television</p>
-                </div>
-                <div class="brand-item">
-                    <img src="Disney.png" alt="Disney">
-                    <p>Disney</p>
-                </div>
-                <div class="brand-item">
-                    <img src="maddock.png" alt="Maddock Films">
-                    <p>Maddock Films</p>
-                </div>
-                <div class="brand-item">
-                    <img src="tilak.png" alt="Tilak">
-                    <p>Tilak</p>
-                </div>
+                <div class="brand-item"><img src="Marvel.png" alt="Marvel"><p>Marvel</p></div>
+                <div class="brand-item"><img src="sony.png" alt="Sony"><p>Sony</p></div>
+                <div class="brand-item"><img src="maddock.png" alt="Maddock"><p>Maddock Films</p></div>
+                <div class="brand-item"><img src="tilak.png" alt="Tilak"><p>Tilak</p></div>
+                <div class="brand-item"><img src="Disney.png" alt="Disney"><p>Disney</p></div>
             </div>
-
-            <section class="categories">
-                <h2>Explore Categories</h2>
-                <div class="category-grid">
-                    <div class="category-item" style="background-image: url('trending.jpg');">Trending</div>
-                    <div class="category-item" style="background-image: url('top-picks.jpg');">Top Picks</div>
-                    <div class="category-item" style="background-image: url('new-releases.jpg');">New Releases</div>
-                </div>
-            </section>
-            
         </section>
-
+    
+        <!-- Categories Section -->
+        <section class="categories">
+            <h2 class="categories">Explore Categories</h2>
+            <div class="category-grid">
+                <div class="category-item" style="background-color: #ff4d6d;">Trending</div>
+                <div class="category-item" style="background-color: #ff8c00;">Top Picks</div>
+                <div class="category-item" style="background-color: #02455c;">New Releases</div>
+                <div class="category-item" style="background-color: #4a4a4a;">Exclusive</div>
+                <div class="category-item" style="background-color: #007bff;">Action</div>
+            </div>
+        </section>
+    
+        <!-- Footer Section -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Streamio. All Rights Reserved.</p>
+    </div>
+</footer>
     </main>
-
 </body>
 </html>
